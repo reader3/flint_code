@@ -1,0 +1,16 @@
+--- acb.h	2025-06-16 02:38:15.000000000 -0700
++++ new.acb.h	2025-11-11 10:40:25.499764233 -0800
+@@ -232,6 +232,13 @@
+ }
+ 
+ ACB_INLINE void
++acb_set_ui_ui(acb_t z, ulong x, ulong y)
++{
++    arb_set_ui(acb_realref(z), x);
++    arb_set_ui(acb_imagref(z), y);
++}
++
++ACB_INLINE void
+ acb_set_si_si(acb_t z, slong x, slong y)
+ {
+     arb_set_si(acb_realref(z), x);
