@@ -11,9 +11,7 @@
 */
 #include <stdio.h>
 #include <string.h>
-#include <ctype.h>
 #include "flint/acb.h"
-#include "autoset_bin_prec.h"
 
 #define ENABLE_DEBUG 0
 
