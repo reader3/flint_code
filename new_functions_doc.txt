@@ -1,0 +1,30 @@
+void acb_norm(arb_t mod, const acb_t x, const slong prec)
+
+   Sets a real value mod to the norm of x, a complex number, i.e. mod = norm(x).
+   mod is short for the modulus(complex C) as commonly used in mathematics.
+
+int acb_set_str(acb_t res, const char * inp, slong prec)`
+
+   Sets a complex res number from string input inp. As in the arb_set_str() function
+   the human-readable string can have decimal floating-point literals, such as "25",
+   "0.001" "1.0 +/- 2.3e-10" or may include up to four literals separated by the
+   symbol "+/-". Braces may also be included, such as "[3.14159265358979 +/- 1.3e-14]"
+
+   BUT a caveat applies:
+
+   Caveat: The real and imaginary parts of the number MUST be separated by a space character.
+            If only one number is given, it is automatically assumed to be real with imag set
+            to zero.
+
+
+long autoset_bin_prec(const char* inp)
+
+    Takes a string input, finds a complex number from that, parses the real and imag parts and
+    determines the bit precision needed for the part which has most precision (digits).
+    This is intended to be a utility function for auto-setting the slong prec variable used in
+    many arb and acb functions to specify bit precision.
+
+void acb_set_ui_ui(acb_t z, ulong x, ulong y)
+
+    Sets z such that the real part of z = x, and the imag part of z = y.
+
