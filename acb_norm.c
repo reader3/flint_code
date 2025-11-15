@@ -11,7 +11,7 @@
 */
 #include "flint/acb.h"
 
-int acb_norm(arb_t mod, const acb_t x, const slong prec)
+void acb_norm(arb_t mod, const acb_t x, const slong prec)
 {
     arb_t re, im, re_sq, im_sq, mod_sq;
     arb_init(re); arb_init(im);
@@ -34,6 +34,4 @@ int acb_norm(arb_t mod, const acb_t x, const slong prec)
     arb_sqrt(mod, mod_sq, prec);
     arb_clear(mod_sq);
 
-    int error = 0;
-    return error;
 }

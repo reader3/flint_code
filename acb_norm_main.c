@@ -40,6 +40,7 @@ int main(int argc, char *argv[])
 
     printf("Using bit precision = %d decimal digits: %d\n",bit_precision, digits);
 
+    // creating the acb_t complex number
     error = acb_set_str(result, argv[1], bit_precision);
     if (error) {
         fprintf(stderr, "Error setting complex number from string.\n");
@@ -51,15 +52,12 @@ int main(int argc, char *argv[])
         printf("]*i\n");
     }
 
+    // finding the norm(C)
     printf("Testing norm function:\n");
-    error = acb_norm(norm, result, bit_precision);
-    if (error) {
-        fprintf(stderr, "Error occurred while finding norm.\n");
-    } else {
-       printf("Complex modulus or norm: ");
-       arb_printd(norm, digits);
-       printf("\n");
-    }
+    acb_norm(norm, result, bit_precision);
+    printf("Complex modulus or norm: ");
+    arb_printd(norm, digits);
+    printf("\n");
 
     arb_clear(norm);
     acb_clear(result);
